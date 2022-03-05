@@ -22,7 +22,7 @@ public class KitchenGUIController {
     private String extractedTableNumberString = new String();
     private int extractedTableNumberInteger;
     //thread for adding data to kitchenOrderList
-    public  Thread addOrders = new Thread(new Runnable() {
+    public Thread addOrders = new Thread(new Runnable() {
         @Override
         public void run() {
             while (true) {
