@@ -24,8 +24,12 @@ public class MenuRepository {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
-                MenuDataModel menuItem = getMenuItem(line);
-                listMenu.add(menuItem);
+                try {
+                    MenuDataModel menuItem = getMenuItem(line);
+                    listMenu.add(menuItem);
+                }catch(NumberFormatException ex){
+                    System.out.println("NumberFormatException cannot convert to double");
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
