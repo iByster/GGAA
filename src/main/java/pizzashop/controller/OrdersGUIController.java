@@ -9,10 +9,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import pizzashop.model.MenuDataModel;
-import pizzashop.gui.OrdersGUI;
 import pizzashop.service.PaymentAlert;
 import pizzashop.service.PizzaService;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
@@ -59,20 +59,20 @@ public class OrdersGUIController {
 
     public ObservableList<String> observableList;
     private TableView<MenuDataModel> table = new TableView<MenuDataModel>();
-    private ObservableList<MenuDataModel> menuData;// = FXCollections.observableArrayList();
+    private ObservableList<MenuDataModel> menuData;
     private Calendar now = Calendar.getInstance();
     private static double totalAmount;
 
     public OrdersGUIController(){ }
 
-    public void setService(PizzaService service, int tableNumber){
+    public void setService(PizzaService service, int tableNumber) throws IOException {
         this.service=service;
         this.tableNumber=tableNumber;
         initData();
 
     }
 
-    private void initData(){
+    private void initData() throws IOException {
         menuData = FXCollections.observableArrayList(service.getMenuData());
         menuData.setAll(service.getMenuData());
         orderTable.setItems(menuData);
@@ -98,14 +98,14 @@ public class OrdersGUIController {
                     .filter(x -> x.getQuantity()>0)
                     .map(menuDataModel -> menuDataModel.getQuantity()*menuDataModel.getPrice())
                     .collect(Collectors.toList());
-            setTotalAmount(orderPaymentList.stream().mapToDouble(e->e.doubleValue()).sum());
+            setTotalAmount(orderPaymentList.stream().mapToDouble(e-> e).sum());
             orderStatus.setText("Total amount: " + getTotalAmount());
             System.out.println("--------------------------");
             System.out.println("Table: " + tableNumber);
             System.out.println("Total: " + getTotalAmount());
             System.out.println("--------------------------");
             PaymentAlert pay = new PaymentAlert(service);
-            pay.showPaymentAlert(tableNumber, this.getTotalAmount());
+            pay.showPaymentAlert(tableNumber, getTotalAmount());
         });
     }
 
@@ -148,10 +148,13 @@ public class OrdersGUIController {
         newOrder.setOnAction(event -> {
             Alert exitAlert = new Alert(Alert.AlertType.CONFIRMATION, "Exit table?",ButtonType.YES, ButtonType.NO);
             Optional<ButtonType> result = exitAlert.showAndWait();
-            if (result.get() == ButtonType.YES){
-                Stage stage = (Stage) newOrder.getScene().getWindow();
-                stage.close();
+            if (result.isPresent()) {
+                if (result.get() == ButtonType.YES) {
+                    Stage stage = (Stage) newOrder.getScene().getWindow();
+                    stage.close();
                 }
+            }
+
         });
     }
 }
