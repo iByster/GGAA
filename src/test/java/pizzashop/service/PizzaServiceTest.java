@@ -80,4 +80,19 @@ class PizzaServiceTest {
         //Act
         assertThrows(Exception.class, () -> {pizzaService.addPayment(t, paymentType, -20d);});
     }
+
+    @Test
+    void testAmmountBVAV2() throws Exception {
+        //Arrange
+        double value = Double.MAX_VALUE;
+        int t = 3;
+        PaymentType paymentType = PaymentType.Card;
+        PizzaService pizzaService = new PizzaService(new MenuRepository(), new PaymentRepository());
+
+        //Act
+        boolean result = pizzaService.addPayment(t, paymentType, value);
+
+        //Assert
+        assertTrue(result);
+    }
 }
