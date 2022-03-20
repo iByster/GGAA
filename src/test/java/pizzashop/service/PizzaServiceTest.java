@@ -95,6 +95,7 @@ class PizzaServiceTest {
         //Assert
         assertTrue(result);
     }
+
     @DisplayName("Test tables BVA valid")
     @ParameterizedTest
     @ValueSource(ints = {1, 8})
@@ -142,7 +143,6 @@ class PizzaServiceTest {
     @DisplayName("Test amount BVA invalid")
     @ParameterizedTest
     @ValueSource(doubles = {-1d})
-    @Test()
     void testAmountBVAN(double value) throws Exception {
         //Arrange
         PaymentType paymentType = PaymentType.Card;
