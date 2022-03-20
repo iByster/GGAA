@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/alexandrugane/Desktop/Faculta/Sem2/VVSS/GGAA</OriginalElement>
+  <nodes>
+    <node x="0.0" y="700.5">pizzashop.gui.OrdersGUI</node>
+    <node x="590.832627118644" y="173.0">pizzashop.model.MenuDataModel</node>
+    <node x="162.1906779661017" y="0.0">pizzashop.model.PaymentType</node>
+    <node x="574.25" y="690.0">pizzashop.service.PaymentOperation</node>
+    <node x="1048.875" y="0.0">pizzashop.controller.KitchenGUIController</node>
+    <node x="270.25" y="656.0">pizzashop.service.PizzaService</node>
+    <node x="192.5656779661017" y="402.0">pizzashop.repository.PaymentRepository</node>
+    <node x="711.875" y="926.0">pizzashop.controller.OrdersGUIController</node>
+    <node x="319.4576271186441" y="1135.5">pizzashop.service.PaymentAlert</node>
+    <node x="0.0" y="1535.0">pizzashop.gui.KitchenGUI</node>
+    <node x="36.5" y="970.0">pizzashop.controller.MainGUIController</node>
+    <node x="188.6906779661017" y="194.5">pizzashop.model.Payment</node>
+    <node x="414.5656779661017" y="435.0">pizzashop.repository.MenuRepository</node>
+    <node x="1331.875" y="0.0">pizzashop.Main</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="pizzashop.service.PizzaService" target="pizzashop.repository.PaymentRepository" relationship="DEPENDENCY">
+      <point x="-104.1843220338983" y="-84.0" />
+      <point x="15.0" y="95.0" />
+    </edge>
+    <edge source="pizzashop.model.Payment" target="pizzashop.model.PaymentType" relationship="DEPENDENCY">
+      <point x="0.0" y="-62.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="pizzashop.controller.MainGUIController" target="pizzashop.gui.OrdersGUI" relationship="TO_ONE">
+      <point x="-30.0" y="-238.0" />
+      <point x="-30.0" y="39.5" />
+    </edge>
+    <edge source="pizzashop.controller.OrdersGUIController" target="pizzashop.model.MenuDataModel" relationship="DEPENDENCY">
+      <point x="0.0" y="-282.0" />
+      <point x="857.875" y="591.0" />
+      <point x="726.833" y="591.0" />
+      <point x="3.728813559291666E-4" y="83.5" />
+    </edge>
+    <edge source="pizzashop.service.PizzaService" target="pizzashop.repository.MenuRepository" relationship="DEPENDENCY">
+      <point x="19.25" y="-84.0" />
+      <point x="-109.5656779661017" y="62.0" />
+    </edge>
+    <edge source="pizzashop.controller.MainGUIController" target="pizzashop.service.PizzaService" relationship="DEPENDENCY">
+      <point x="-15.0" y="-238.0" />
+      <point x="109.5" y="901.0" />
+      <point x="397.25" y="901.0" />
+      <point x="-15.0" y="84.0" />
+    </edge>
+    <edge source="pizzashop.service.PaymentAlert" target="pizzashop.service.PaymentOperation" relationship="REALIZATION">
+      <point x="119.99999999999994" y="0.0" />
+      <point x="660.25" y="1208.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="pizzashop.controller.MainGUIController" target="pizzashop.service.PizzaService" relationship="TO_ONE">
+      <point x="0.0" y="-238.0" />
+      <point x="124.5" y="875.0" />
+      <point x="412.25" y="875.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="pizzashop.repository.MenuRepository" target="pizzashop.model.MenuDataModel" relationship="DEPENDENCY">
+      <point x="3.220338983283E-4" y="62.0" />
+      <point x="541.066" y="591.0" />
+      <point x="726.833" y="591.0" />
+      <point x="3.728813559291666E-4" y="83.5" />
+    </edge>
+    <edge source="pizzashop.controller.OrdersGUIController" target="pizzashop.service.PizzaService" relationship="TO_ONE">
+      <point x="-15.0" y="-282.0" />
+      <point x="842.875" y="875.0" />
+      <point x="412.25" y="875.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="pizzashop.service.PizzaService" target="pizzashop.model.MenuDataModel" relationship="DEPENDENCY">
+      <point x="4.25" y="-84.0" />
+      <point x="416.5" y="591.0" />
+      <point x="726.833" y="591.0" />
+      <point x="3.728813559291666E-4" y="83.5" />
+    </edge>
+    <edge source="pizzashop.repository.PaymentRepository" target="pizzashop.model.Payment" relationship="DEPENDENCY">
+      <point x="61.12532203389827" y="-95.0" />
+      <point x="354.191" y="275.5" />
+      <point x="381.0" y="275.5" />
+      <point x="381.0" y="256.5" />
+      <point x="74.00032203389827" y="0.0" />
+    </edge>
+    <edge source="pizzashop.controller.OrdersGUIController" target="pizzashop.service.PizzaService" relationship="DEPENDENCY">
+      <point x="15.0" y="-282.0" />
+      <point x="872.875" y="901.0" />
+      <point x="397.25" y="901.0" />
+      <point x="-15.0" y="84.0" />
+    </edge>
+    <edge source="pizzashop.model.Payment" target="pizzashop.model.PaymentType" relationship="TO_ONE">
+      <point x="15.0" y="-62.0" />
+      <point x="15.0" y="61.5" />
+    </edge>
+    <edge source="pizzashop.service.PizzaService" target="pizzashop.model.Payment" relationship="DEPENDENCY">
+      <point x="-142.0" y="-57.0" />
+      <point x="144.691" y="683.0" />
+      <point x="144.691" y="177.0" />
+      <point x="381.0" y="177.0" />
+      <point x="381.0" y="256.5" />
+      <point x="74.00032203389827" y="0.0" />
+    </edge>
+    <edge source="pizzashop.repository.MenuRepository" target="pizzashop.model.MenuDataModel" relationship="TO_MANY">
+      <point x="-14.999677966101672" y="62.0" />
+      <point x="526.066" y="575.0" />
+      <point x="711.833" y="575.0" />
+      <point x="-14.99962711864407" y="83.5" />
+    </edge>
+    <edge source="pizzashop.service.PaymentAlert" target="pizzashop.service.PizzaService" relationship="TO_ONE">
+      <point x="3.728813559291666E-4" y="-72.5" />
+      <point x="439.458" y="875.0" />
+      <point x="412.25" y="875.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="pizzashop.service.PizzaService" target="pizzashop.repository.MenuRepository" relationship="TO_ONE">
+      <point x="98.81600000000003" y="-84.0" />
+      <point x="-29.99967796610167" y="62.0" />
+    </edge>
+    <edge source="pizzashop.service.PizzaService" target="pizzashop.repository.PaymentRepository" relationship="TO_ONE">
+      <point x="-119.1843220338983" y="-84.0" />
+      <point x="0.0" y="95.0" />
+    </edge>
+    <edge source="pizzashop.controller.MainGUIController" target="pizzashop.gui.OrdersGUI" relationship="DEPENDENCY">
+      <point x="-45.0" y="-238.0" />
+      <point x="-45.0" y="39.5" />
+    </edge>
+    <edge source="pizzashop.controller.OrdersGUIController" target="pizzashop.model.MenuDataModel" relationship="TO_MANY">
+      <point x="30.0" y="-282.0" />
+      <point x="887.875" y="575.0" />
+      <point x="711.833" y="575.0" />
+      <point x="-14.99962711864407" y="83.5" />
+    </edge>
+    <edge source="pizzashop.repository.PaymentRepository" target="pizzashop.model.Payment" relationship="TO_MANY">
+      <point x="-30.375" y="-95.0" />
+      <point x="0.0" y="62.0" />
+    </edge>
+    <edge source="pizzashop.service.PaymentAlert" target="pizzashop.service.PizzaService" relationship="DEPENDENCY">
+      <point x="-14.99962711864407" y="-72.5" />
+      <point x="424.458" y="901.0" />
+      <point x="397.25" y="901.0" />
+      <point x="-15.0" y="84.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.31147540983606564" showDependencies="true" x="741.0" y="783.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
