@@ -95,4 +95,60 @@ class PizzaServiceTest {
         //Assert
         assertTrue(result);
     }
+    @DisplayName("Test tables BVA valid")
+    @ParameterizedTest
+    @ValueSource(ints = {1, 8})
+    void testTablesBVAV(int value) throws Exception {
+        //Arrange
+        double amount = 20d;
+        PaymentType paymentType = PaymentType.Card;
+        PizzaService pizzaService = new PizzaService(new MenuRepository(), new PaymentRepository());
+
+        //Act
+        boolean result = pizzaService.addPayment(value, paymentType, amount);
+
+        //Assert
+        assertEquals(true, result);
+    }
+
+    @Test
+    void testAmmountBVAV() throws Exception {
+        //Arrange
+        double value = 1.5d;
+        int t = 3;
+        PaymentType paymentType = PaymentType.Card;
+        PizzaService pizzaService = new PizzaService(new MenuRepository(), new PaymentRepository());
+
+        //Act
+        boolean result = pizzaService.addPayment(t, paymentType, value);
+
+        //Assert
+        assertEquals(true, result);
+    }
+
+    @DisplayName("Test tables BVA invalid")
+    @ParameterizedTest
+    @ValueSource(ints = {0, 9})
+    void testTablesBVAN(int value) throws Exception {
+        //Arrange
+        double amount = 20d;
+        PaymentType paymentType = PaymentType.Card;
+        PizzaService pizzaService = new PizzaService(new MenuRepository(), new PaymentRepository());
+
+        //Act
+        assertThrows(Exception.class, () -> {pizzaService.addPayment(value, paymentType, amount);});
+    }
+
+    @DisplayName("Test amount BVA invalid")
+    @ParameterizedTest
+    @ValueSource(doubles = {-1d})
+    @Test()
+    void testAmountBVAN(double value) throws Exception {
+        //Arrange
+        PaymentType paymentType = PaymentType.Card;
+        PizzaService pizzaService = new PizzaService(new MenuRepository(), new PaymentRepository());
+
+        //Act
+        assertThrows(Exception.class, () -> {pizzaService.addPayment(1, paymentType, value);});
+    }
 }
