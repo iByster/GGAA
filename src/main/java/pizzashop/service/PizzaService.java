@@ -30,7 +30,13 @@ public class PizzaService {
 
     public List<MenuDataModel> getMenuData() {return menuRepo.getMenu();}
 
-    public List<Payment> getPayments(){return payRepo.getAll(); }
+    public List<Payment> getPayments() {
+        if(payRepo == null) {
+            return null;
+        }
+
+        return payRepo.getAll();
+    }
 
     public void setPaymentRepo(PaymentRepository payRepo) {
         this.payRepo = payRepo;
