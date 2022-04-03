@@ -25,4 +25,20 @@ public class Payment {
     public String toString() {
         return tableNumber + ","+type +"," + amount;
     }
+
+    public int getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
+    }
+
+    public void setType(PaymentType type) {
+        this.type = type;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 }
