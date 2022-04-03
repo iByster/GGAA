@@ -17,4 +17,21 @@ class PizzaServiceTestWhite {
 
         assertEquals(0d, pizzaService.getTotalAmount(PaymentType.Cash));
     }
+    @Test
+    void testP2() throws Exception {
+        PizzaService pizzaService = new PizzaService(new MenuRepository(), new PaymentRepository());
+
+        assertEquals(0d, pizzaService.getTotalAmount(PaymentType.Cash));
+    }
+    @Test
+    void testP4() throws Exception {
+        PizzaService pizzaService = new PizzaService(new MenuRepository(), new PaymentRepository());
+
+        pizzaService.addPayment(1, PaymentType.Cash, 20d);
+        pizzaService.addPayment(3, PaymentType.Cash, 20d);
+        pizzaService.addPayment(4, PaymentType.Cash, 20d);
+        pizzaService.addPayment(5, PaymentType.Cash, 20d);
+
+        assertEquals(0d, pizzaService.getTotalAmount(PaymentType.Card));
+    }
 }
