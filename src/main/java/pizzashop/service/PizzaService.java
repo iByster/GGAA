@@ -11,7 +11,7 @@ import java.util.List;
 public class PizzaService {
 
     private final MenuRepository menuRepo;
-    private final PaymentRepository payRepo;
+    private PaymentRepository payRepo;
 
     public PizzaService(MenuRepository menuRepo, PaymentRepository payRepo){
         this.menuRepo=menuRepo;
@@ -30,7 +30,17 @@ public class PizzaService {
 
     public List<MenuDataModel> getMenuData() {return menuRepo.getMenu();}
 
-    public List<Payment> getPayments(){return payRepo.getAll(); }
+    public List<Payment> getPayments() {
+        if(payRepo == null) {
+            return null;
+        }
+
+        return payRepo.getAll();
+    }
+
+    public void setPaymentRepo(PaymentRepository payRepo) {
+        this.payRepo = payRepo;
+    }
 
     public boolean addPayment(int table, PaymentType type, double amount) throws Exception {
         Payment payment= new Payment(table, type, amount);
@@ -42,7 +52,11 @@ public class PizzaService {
     public double getTotalAmount(PaymentType type){
         double total=0.0f;
         List<Payment> l=getPayments();
-        if ((l==null) || l.isEmpty()) return total;
+        if (l==null)
+            return total;
+
+        if(l.isEmpty())
+            return total;
         for (Payment p:l){
             if (p.getType().equals(type))
                 total+=p.getAmount();

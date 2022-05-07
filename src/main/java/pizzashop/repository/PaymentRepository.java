@@ -10,12 +10,17 @@ import java.util.Objects;
 import java.util.StringTokenizer;
 
 public class PaymentRepository {
-    private static final String filename = "data/payments.txt";
+    private String filename = "data/payments.txt";
     private final List<Payment> paymentList;
 
-    public PaymentRepository(){
+    public PaymentRepository() {
         this.paymentList = new ArrayList<>();
-        readPayments();
+    }
+
+    public PaymentRepository(String filename){
+        this.paymentList = new ArrayList<>();
+        this.filename = filename;
+//        readPayments();
     }
 
     private void readPayments(){
@@ -59,7 +64,7 @@ public class PaymentRepository {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file));){
             for (Payment p:paymentList) {
-                System.out.println(p.toString());
+//                System.out.println(p.toString());
                 bw.write(p.toString());
                 bw.newLine();
             }
