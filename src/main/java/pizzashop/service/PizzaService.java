@@ -43,7 +43,7 @@ public class PizzaService {
     }
 
     public boolean addPayment(int table, PaymentType type, double amount) throws Exception {
-        Payment payment= new Payment(table, type, amount);
+        Payment payment = new Payment(table, type, amount);
         this.validate(payment);
         payRepo.add(payment);
         return true;

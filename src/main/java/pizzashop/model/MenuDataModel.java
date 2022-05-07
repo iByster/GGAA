@@ -15,6 +15,15 @@ public class MenuDataModel {
         this.price = new SimpleDoubleProperty(mPrice);
     }
 
+    @Override
+    public String toString() {
+        return "MenuDataModel{" +
+                "menuItem=" + menuItem +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                '}';
+    }
+
     public String getMenuItem() {
         return menuItem.get();
     }

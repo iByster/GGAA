@@ -36,7 +36,7 @@ public class MenuRepository {
         }
     }
 
-    private MenuDataModel getMenuItem(String line){
+    public MenuDataModel getMenuItem(String line){
         MenuDataModel item;
         if (line==null|| line.equals("")) return null;
         StringTokenizer st=new StringTokenizer(line, ",");
@@ -48,6 +48,7 @@ public class MenuRepository {
 
     public List<MenuDataModel> getMenu() {
         readMenu();//create a new menu for each table, on request
+        System.out.println(listMenu);
         return listMenu;
     }
 
