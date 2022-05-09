@@ -43,6 +43,7 @@ class PizzaServiceTest {
         assertEquals(true, result);
     }
 
+    @Test
     @Timeout(1000)
     void testPaymentTypeV() throws Exception {
         //Arrange
