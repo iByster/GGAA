@@ -13,7 +13,6 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PizzaServiceTest {
-    @DisplayName("Test tables valid")
     @ParameterizedTest
     @ValueSource(ints = {1, 2})
     void testTablesV(int value) throws Exception {
@@ -29,6 +28,7 @@ class PizzaServiceTest {
         assertEquals(true, result);
     }
 
+    @Test
     @RepeatedTest(2)
     void testAmmountV() throws Exception {
         //Arrange
@@ -58,7 +58,6 @@ class PizzaServiceTest {
         assertEquals(true, result);
     }
 
-    @DisplayName("Test tables invalid")
     @ParameterizedTest
     @ValueSource(ints = {-100, 90})
     void testTablesN(int value) throws Exception {
@@ -97,7 +96,6 @@ class PizzaServiceTest {
         assertTrue(result);
     }
 
-    @DisplayName("Test tables BVA valid")
     @ParameterizedTest
     @ValueSource(ints = {1, 8})
     void testTablesBVAV(int value) throws Exception {
@@ -128,7 +126,6 @@ class PizzaServiceTest {
         assertEquals(true, result);
     }
 
-    @DisplayName("Test tables BVA invalid")
     @ParameterizedTest
     @ValueSource(ints = {0, 9})
     void testTablesBVAN(int value) throws Exception {
@@ -141,7 +138,6 @@ class PizzaServiceTest {
         assertThrows(Exception.class, () -> {pizzaService.addPayment(value, paymentType, amount);});
     }
 
-    @DisplayName("Test amount BVA invalid")
     @ParameterizedTest
     @ValueSource(doubles = {-1d})
     void testAmountBVAN(double value) throws Exception {
