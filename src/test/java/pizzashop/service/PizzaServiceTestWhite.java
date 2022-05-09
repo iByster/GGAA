@@ -58,18 +58,18 @@ class PizzaServiceTestWhite {
         assertEquals(0d, pizzaService.getTotalAmount(PaymentType.Card));
     }
 
-//    @Test
-//    void testP5() throws Exception {
-//        PizzaService pizzaService = new PizzaService(new MenuRepository(), new PaymentRepository());
-//
-//        try{
-//            pizzaService.addPayment(1, PaymentType.Cash, 0d);
-//        }catch(Exception ex){
-//            System.out.println("Invalid ammount !!! validate");
-//        }
-//
-//        assertEquals(0d, pizzaService.getTotalAmount(PaymentType.Card));
-//    }
+    @Test
+    void testP5() throws Exception {
+        PizzaService pizzaService = new PizzaService(new MenuRepository(), new PaymentRepository());
+
+        try{
+            pizzaService.addPayment(1, PaymentType.Cash, 0d);
+        }catch(Exception ex){
+            System.out.println("Invalid ammount !!! validate");
+        }
+
+        assertEquals(0d, pizzaService.getTotalAmount(PaymentType.Card));
+    }
 //
 //    @Test
 //    void testP6() throws Exception {
