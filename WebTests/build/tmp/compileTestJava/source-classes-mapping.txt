@@ -1,0 +1,24 @@
+org/example/features/search/package-info.java
+ org.example.features.search.package-info
+org/example/features/search/LoginTest.java
+ org.example.features.search.LoginTest
+org/example/pages/LoginPage.java
+ org.example.pages.LoginPage
+org/example/features/search/LogoutTest.java
+ org.example.features.search.LogoutTest
+org/example/steps/serenity/LoginSteps.java
+ org.example.steps.serenity.LoginSteps
+org/example/features/search/ChangeInfoTest.java
+ org.example.features.search.ChangeInfoTest
+org/example/steps/serenity/ChangeInfoSteps.java
+ org.example.steps.serenity.ChangeInfoSteps
+org/example/pages/AdminPage.java
+ org.example.pages.AdminPage
+org/example/steps/serenity/LogoutSteps.java
+ org.example.steps.serenity.LogoutSteps
+org/example/pages/RegisterPage.java
+ org.example.pages.RegisterPage
+org/example/features/search/RegisterTest.java
+ org.example.features.search.RegisterTest
+org/example/steps/serenity/RegisterSteps.java
+ org.example.steps.serenity.RegisterSteps
